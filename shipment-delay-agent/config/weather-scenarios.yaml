@@ -1,4 +1,4 @@
-scenario_duration_seconds: 60
+scenario_duration_seconds: 10
 loop: true
 scenarios:
   - id: normal

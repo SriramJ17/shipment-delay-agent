@@ -30,7 +30,7 @@ def load_scenarios_config() -> dict[str, Any]:
 
 def scenario_for_elapsed(elapsed_seconds: float, config: dict[str, Any]) -> tuple[int, dict[str, Any]]:
     scenarios = config["scenarios"]
-    duration = max(1, int(config.get("scenario_duration_seconds", 60)))
+    duration = max(1, int(config.get("scenario_duration_seconds", 10)))
     index = int(max(0, elapsed_seconds) // duration)
     if config.get("loop", True):
         index %= len(scenarios)
@@ -58,6 +58,6 @@ def current_scenario() -> tuple[int, dict[str, Any], float, int]:
     start = ensure_simulation_start()
     elapsed = max(0.0, time.time() - start)
     index, scenario = scenario_for_elapsed(elapsed, config)
-    duration = max(1, int(config.get("scenario_duration_seconds", 60)))
+    duration = max(1, int(config.get("scenario_duration_seconds", 10)))
     seconds_remaining = duration - int(elapsed % duration)
     return index, scenario, elapsed, seconds_remaining
