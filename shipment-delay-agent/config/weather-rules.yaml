@@ -1,0 +1,6 @@
+delay_days:
+  normal: 0.0
+  moderate: 0.5
+  severe: 1.0
+  extreme: 2.0
+minimum_material_change_days: 0.25

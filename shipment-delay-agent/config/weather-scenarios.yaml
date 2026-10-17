@@ -1,0 +1,71 @@
+scenario_duration_seconds: 60
+loop: true
+scenarios:
+  - id: normal
+    label: Normal weather
+    description: No significant weather disruption on the remaining route.
+    checkpoints:
+      - name: Delhi
+        severity: normal
+        hours_until_arrival: 0
+        affects_remaining_route: false
+      - name: Central Transit
+        severity: normal
+        hours_until_arrival: 18
+        affects_remaining_route: true
+      - name: Chennai
+        severity: normal
+        hours_until_arrival: 42
+        affects_remaining_route: true
+
+  - id: severe_transit
+    label: Severe weather at transit checkpoint
+    description: Severe weather is expected to overlap with the shipment's transit window.
+    checkpoints:
+      - name: Delhi
+        severity: normal
+        hours_until_arrival: 0
+        affects_remaining_route: false
+      - name: Central Transit
+        severity: severe
+        hours_until_arrival: 18
+        affects_remaining_route: true
+      - name: Chennai
+        severity: normal
+        hours_until_arrival: 42
+        affects_remaining_route: true
+
+  - id: weather_recovery
+    label: Weather recovery
+    description: Weather has returned to normal; recalculate using remaining transit time.
+    remaining_transit_days: 2.25
+    checkpoints:
+      - name: Delhi
+        severity: normal
+        hours_until_arrival: 0
+        affects_remaining_route: false
+      - name: Central Transit
+        severity: normal
+        hours_until_arrival: 18
+        affects_remaining_route: true
+      - name: Chennai
+        severity: normal
+        hours_until_arrival: 42
+        affects_remaining_route: true
+
+  - id: extreme_transit
+    label: Extreme weather at transit checkpoint
+    description: Extreme weather affects the remaining route.
+    checkpoints:
+      - name: Delhi
+        severity: normal
+        hours_until_arrival: 0
+        affects_remaining_route: false
+      - name: Central Transit
+        severity: extreme
+        hours_until_arrival: 18
+        affects_remaining_route: true
+      - name: Chennai
+        severity: normal
+        hours_until_arrival: 42
+        affects_remaining_route: true

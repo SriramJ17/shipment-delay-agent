@@ -1,0 +1,11 @@
+{
+  "shipment_id": "SH-1042",
+  "product": "Demo parcel",
+  "origin": "Delhi",
+  "destination": "Chennai",
+  "dispatch_day": 0,
+  "original_eta_day": 3.0,
+  "current_day": 1.0,
+  "remaining_transit_days": 2.0,
+  "status": "In transit"
+}

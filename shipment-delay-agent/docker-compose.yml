@@ -1,0 +1,12 @@
+services:
+  shipment-delay-agent:
+    build: .
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    volumes:
+      - shipment_data:/app/data/runtime
+    restart: unless-stopped
+volumes:
+  shipment_data:
